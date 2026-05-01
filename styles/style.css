@@ -125,9 +125,8 @@
 }
 
 @supports (
-  (text-stroke: 1px var(--white)) or (-webkit-text-stroke: 1px var(--white))) 
-  {
-  .watermark {
+  (text-stroke: 1px var(--white)) or (-webkit-text-stroke: 1px var(--white))) {
+    .watermark {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--white);
     text-stroke: 1px var(--white);
