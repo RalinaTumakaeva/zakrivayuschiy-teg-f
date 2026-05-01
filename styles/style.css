@@ -11,6 +11,308 @@
 */
 
 .page {
+  font-family: var(--main-font), sans-serif;
+  font-size: var(--font-size);
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-variation-settings: "wght" var(--main-font_weight);
+}
+
+.header {
+  margin-top: 105px;
+  margin-inline: auto;
+  border: 2px solid var(--accent-color);
+  padding: clamp(122px, calc(122px + 8 * (100vw - 375px) / (1440 - 375)), 130px)
+    clamp(16px, calc(16px + 106.5 * (100vw - 375px) / 1065), 122.5px);
+  font-family: var(--accent-font);
+  font-weight: var(--accent-font_weight);
+  text-align: center;
+  text-transform: uppercase;
+  background-color: var(--white);
+  inline-size: var(--inline-size);
+}
+
+.header_title {
+  margin-bottom: 20px;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header_text {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.main {
+  margin-top: 96px;
+  margin-bottom: 100px;
+}
+
+/* Контейнер карточки */
+.card {
+  margin-bottom: 49px;
+  margin-inline: auto;
+  border: 2px solid var(--accent-color);
+  background-color: var(--white);
+  inline-size: var(--inline-size);
+}
+
+.card_title {
+  margin: 4px 10px;
+  font-size: var(--font-size);
+  font-variation-settings: "wght" var(--main-font_weight-title);
+}
+
+.card_image {
+  display: block;
+  object-fit: cover;
+  object-position: right;
+  inline-size: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.image_filter__grayscale {
+  filter: grayscale(0.7);
+}
+
+.image_filter__saturate {
+  filter: saturate(300%) opacity(0.9);
+}
+
+.image_filter__hue-rotate {
+  filter: hue-rotate(0.1turn);
+}
+
+.image_filter__invert {
+  filter: invert(0.7);
+}
+
+.image_filter__sepia {
+  filter: sepia(90%);
+}
+
+.image_filter__blur {
+  filter: blur(0.2rem);
+}
+
+.image_filter__hue-rotate-green {
+  filter: hue-rotate(0.3turn) blur(0.1rem) opacity(0.7);
+}
+
+.image_wrapper {
+  position: relative;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.watermark {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  opacity: 50%;
+  font-family: var(--accent-font);
+  font-weight: var(--accent-font_weight);
+  font-size: var(--font-size-button);
+  text-shadow:
+    -1px 0 var(--white),
+    0 1px var(--white),
+    1px 0 var(--white),
+    0 -1px var(--white);
+  mix-blend-mode: hard-light;
+}
+
+@supports (
+  (text-stroke: 1px var(--white)) or (-webkit-text-stroke: 1px var(--white))) 
+  {
+  .watermark {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--white);
+    text-stroke: 1px var(--white);
+  }
+}
+
+.card_text {
+  margin: 25px;
+  line-height: 21px;
+  font-variation-settings: "wght" var(--main-font_weight);
+}
+
+.card_text p {
+  margin-bottom: 24.5px;
+}
+
+.container_button {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1px;
+  margin: 0 25px 22px 0;
+}
+
+/* Сердце */
+.card__icon-button {
+  border: transparent;
+  background-color: inherit;
+  transition: border 0.3s ease;
+  cursor: pointer;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent-color);
+}
+
+/* Кнопка "Like"*/
+.card__like-button {
+  width: 130px;
+  height: 38px;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+/*Текст кнопки "Like"*/
+.button__text {
+  position: relative;
+  z-index: 1;
+  color: var(--accent-color);
+  font-family: var(--accent-font);
+  font-weight: var(--accent-font_weight);
+  font-size: var(--font-size-button);
+}
+
+/* Кнопка с дискетой */
+.button__memory {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-inline: auto;
+  border: 2px solid var(--accent-color);
+  background-color: var(--white);
+  cursor: pointer;
+  inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
+  block-size: 85px;
+}
+
+.floppy {
+  width: 28px;
+  height: 28px;
+}
+
+.dialog {
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  inline-size: clamp(21.3125rem, 21.0484rem + 1.1268vw, 22.0625rem);
+  block-size: 191px;
+}
+
+.dialog::backdrop {
+  backdrop-filter: brightness(30%);
+}
+
+.dialog:not([open]) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dialog__title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0 19px;
+}
+
+/* Иконка дискеты */
+.dialog__floppy {
+  flex-shrink: 0;
+  inline-size: 39px;
+  block-size: 39px;
+  stroke-width: 0;
+}
+
+.dialog__text {
+  font-family: var(--accent-font);
+  font-weight: var(--accent-font_weight);
+  font-size: var(--font-size-button);
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.dialog__button {
+  border: 2px solid var(--accent-color);
+  background-color: inherit;
+  cursor: pointer;
+  block-size: 38px;
+  inline-size: clamp(16.3125rem, 15.6083rem + 3.0047vw, 18.3125rem);
+}
+
+.dialog__button,
+.button__memory,
+.card__like-button {
+  position: relative;
+  box-shadow: 0 0 0 0 var(--accent-color);
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.dialog__button:focus,
+.button__memory:focus,
+.card__like-button:focus {
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+}
+
+/* плавно слева направо появляется псевдоэлемент */
+.dialog__button::before,
+.button__memory::before,
+.card__like-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.dialog__button:hover::before,
+.button__memory:hover::before,
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text,
+.floppy {
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+  mix-blend-mode: difference;
+}
+
+@media (width >= 1440px) {
+  .button__memory {
+    flex-direction: row;
+    block-size: 55px;
+  }
+
+  .floppy {
+    width: 21px;
+    height: 21px;
+  }
+
+  .dialog__title {
+    margin: 0 13px;
+  }
 }
