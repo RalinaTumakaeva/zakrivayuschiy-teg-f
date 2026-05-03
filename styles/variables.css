@@ -2,7 +2,7 @@
 :root {
   --main-font: "Inter-Variable";
   --accent-font: "PressStart2P";
-  --main-font_weight-title: 715;
+  --weight-title: 715;
   --main-font_weight: 410;
   --accent-font_weight: 400;
   --font-size: 18px;
@@ -20,7 +20,7 @@
     ),
     repeating-linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
   --inline-size: clamp(375px, 100%, 700px);
-  --white: #fff;
+  --main_color: #fff;
   --heart_contour: #000;
   --accent-color: #000;
   --animation-fill-color: #ff0000;

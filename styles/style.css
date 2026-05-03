@@ -23,7 +23,7 @@
 }
 
 .header {
-  margin-top: 105px;
+  margin-top: 98px;
   margin-inline: auto;
   border: 2px solid var(--accent-color);
   padding: clamp(122px, calc(122px + 8 * (100vw - 375px) / (1440 - 375)), 130px)
@@ -32,7 +32,7 @@
   font-weight: var(--accent-font_weight);
   text-align: center;
   text-transform: uppercase;
-  background-color: var(--white);
+  background-color: var(--main_color);
   inline-size: var(--inline-size);
 }
 
@@ -52,17 +52,17 @@
 
 /* Контейнер карточки */
 .card {
-  margin-bottom: 49px;
+  margin-bottom: 50px;
   margin-inline: auto;
   border: 2px solid var(--accent-color);
-  background-color: var(--white);
+  background-color: var(--main_color);
   inline-size: var(--inline-size);
 }
 
 .card_title {
   margin: 4px 10px;
   font-size: var(--font-size);
-  font-variation-settings: "wght" var(--main-font_weight-title);
+  font-variation-settings: "wght" var(--weight-title);
 }
 
 .card_image {
@@ -117,19 +117,19 @@
   font-weight: var(--accent-font_weight);
   font-size: var(--font-size-button);
   text-shadow:
-    -1px 0 var(--white),
-    0 1px var(--white),
-    1px 0 var(--white),
-    0 -1px var(--white);
+    -1px 0 var(--main_color),
+    0 1px var(--main_color),
+    1px 0 var(--main_color),
+    0 -1px var(--main_color);
   mix-blend-mode: hard-light;
 }
 
 @supports (
-  (text-stroke: 1px var(--white)) or (-webkit-text-stroke: 1px var(--white))) {
+  (text-stroke: 1px var(--main_color)) or (-webkit-text-stroke: 1px var(--main_color))) {
     .watermark {
     text-shadow: none;
-    -webkit-text-stroke: 1px var(--white);
-    text-stroke: 1px var(--white);
+    -webkit-text-stroke: 1px var(--main_color);
+    text-stroke: 1px var(--main_color);
   }
 }
 
@@ -140,31 +140,32 @@
 }
 
 .card_text p {
-  margin-bottom: 24.5px;
+  margin-bottom: 23.6px;
 }
 
 .container_button {
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 1px;
   margin: 0 25px 22px 0;
 }
 
 /* Сердце */
 .card__icon-button {
-  border: transparent;
+  border: none;
   background-color: inherit;
   transition: border 0.3s ease;
   cursor: pointer;
 }
 
 .card__icon-button:focus {
+  overflow: hidden;
   outline: none;
 }
 
 .card__icon-button:focus-visible {
-  border: 2px solid var(--accent-color);
+  outline: 2px solid var(--accent-color);
+  outline-offset: -4px;
 }
 
 /* Кнопка "Like"*/
@@ -173,6 +174,7 @@
   height: 38px;
   background-color: inherit;
   cursor: pointer;
+  border: 2px solid var(--accent-color);
 }
 
 /*Текст кнопки "Like"*/
@@ -194,7 +196,7 @@
   gap: 8px;
   margin-inline: auto;
   border: 2px solid var(--accent-color);
-  background-color: var(--white);
+  background-color: var(--main_color);
   cursor: pointer;
   inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
   block-size: 85px;
@@ -203,6 +205,7 @@
 .floppy {
   width: 28px;
   height: 28px;
+  flex-shrink: 0;
 }
 
 .dialog {
@@ -238,6 +241,7 @@
   inline-size: 39px;
   block-size: 39px;
   stroke-width: 0;
+  color: var(--accent-color);
 }
 
 .dialog__text {
@@ -256,25 +260,25 @@
   inline-size: clamp(16.3125rem, 15.6083rem + 3.0047vw, 18.3125rem);
 }
 
-.dialog__button,
-.button__memory,
-.card__like-button {
+.dialog__button span {
+  text-transform: uppercase;
+}
+
+.button {
   position: relative;
   box-shadow: 0 0 0 0 var(--accent-color);
   outline: none;
   transition: box-shadow 0.3s ease;
 }
 
-.dialog__button:focus,
-.button__memory:focus,
-.card__like-button:focus {
+.button:focus {
   box-shadow: 2px 2px 0 0 var(--accent-color);
+  outline: none;
+  overflow: hidden;
 }
 
 /* плавно слева направо появляется псевдоэлемент */
-.dialog__button::before,
-.button__memory::before,
-.card__like-button::before {
+.button::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -286,9 +290,7 @@
   transform-origin: left;
 }
 
-.dialog__button:hover::before,
-.button__memory:hover::before,
-.card__like-button:hover::before {
+.button:hover::before {
   transform: scaleX(1);
 }
 
@@ -296,7 +298,7 @@
 .floppy {
   position: relative;
   z-index: 1;
-  color: var(--white);
+  color: var(--main_color);
   mix-blend-mode: difference;
 }
 
