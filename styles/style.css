@@ -126,7 +126,7 @@
 
 @supports (
   (text-stroke: 1px var(--main_color)) or (-webkit-text-stroke: 1px var(--main_color))) {
-    .watermark {
+  .watermark {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--main_color);
     text-stroke: 1px var(--main_color);
@@ -159,8 +159,8 @@
 }
 
 .card__icon-button:focus {
-  overflow: hidden;
   outline: none;
+  overflow: hidden;
 }
 
 .card__icon-button:focus-visible {
@@ -172,9 +172,9 @@
 .card__like-button {
   width: 130px;
   height: 38px;
+  border: 2px solid var(--accent-color);
   background-color: inherit;
   cursor: pointer;
-  border: 2px solid var(--accent-color);
 }
 
 /*Текст кнопки "Like"*/
@@ -203,9 +203,9 @@
 }
 
 .floppy {
+  flex-shrink: 0;
   width: 28px;
   height: 28px;
-  flex-shrink: 0;
 }
 
 .dialog {
@@ -238,10 +238,10 @@
 /* Иконка дискеты */
 .dialog__floppy {
   flex-shrink: 0;
+  color: var(--accent-color);
   inline-size: 39px;
   block-size: 39px;
   stroke-width: 0;
-  color: var(--accent-color);
 }
 
 .dialog__text {
